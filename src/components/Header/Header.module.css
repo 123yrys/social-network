@@ -1,0 +1,11 @@
+.header{
+  grid-area: h;
+  height: 66px;
+  padding: 0 16px;
+  box-shadow: 0px 0px 5px rgb(0 0 0 / 20%);
+  position: relative;
+  background: #fff;
+}
+.header img{
+  width: 60px;
+}

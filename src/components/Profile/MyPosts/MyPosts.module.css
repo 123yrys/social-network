@@ -1,0 +1,34 @@
+
+.textarea{
+  background: #fff;
+  border-color: transparent;
+  border-radius: 5px;
+  color: inherit;
+  font-size: 13px;
+  height: 80px;
+  line-height: 16px;
+  width: 100%;
+}
+.postForm{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.postForm button{
+  color: #fa6342;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s linear 0s;
+  border-radius: 5px;
+    display: inline-block;
+    padding: 6px 30px;
+    text-align: center;
+    cursor:pointer;
+    border: 1px solid #fa6342;
+    margin-top: 10px;
+    background: transparent;
+    box-shadow: 4px 7px 12px 0 rgb(250 99 66 / 20%);
+}
+.postForm button:hover{
+  background: #fa6342;
+  color: #fff;
+}

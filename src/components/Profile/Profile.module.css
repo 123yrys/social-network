@@ -1,0 +1,9 @@
+.content__image{
+  background: #fff;
+  border: 1px solid #ede9e9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.content__image img{
+  width: 100%;
+}

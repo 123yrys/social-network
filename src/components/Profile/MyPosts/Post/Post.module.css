@@ -1,0 +1,14 @@
+.item {
+  margin-bottom: 20px;
+  letter-spacing: 0.1px;
+  line-height: 26px;
+  color: #959ab5;
+  background: #fff;
+  border: 1px solid #ede9e9;
+  border-radius: 6px;
+  padding: 10px;
+}
+.item img {
+  width: 50px;
+  border-radius: 50%;
+}

@@ -1,0 +1,17 @@
+.nav{
+  grid-area: n;
+  background: #fff;
+  border: 1px solid #ede9e9;
+  border-radius: 6px;
+}
+.nav ul{
+  list-style-type: none;
+}
+.nav a{
+  color: #333;
+  font-size: 18px;
+  text-decoration: none;
+}
+.nav li a.active{
+  color: gold;
+}
