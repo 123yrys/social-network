@@ -15,3 +15,6 @@
 .nav li a.active{
   color: gold;
 }
+.sidebar_bottom{
+  padding-left: 20px;
+}

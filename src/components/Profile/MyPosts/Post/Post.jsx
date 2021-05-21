@@ -7,7 +7,7 @@ function Post(props) {
     <div>
       <div className={s.item}>
         <img src="http://www.venmond.com/demo/vendroid/img/avatar/big.jpg" alt="" />
-        {props.message}, {props.yrys}
+        {props.message}
        <div>
           <span>Like {props.likes}</span>
         </div>

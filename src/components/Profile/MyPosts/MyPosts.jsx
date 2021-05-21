@@ -3,24 +3,30 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 
-function MyPosts(){
+
+
+const MyPosts=(props)=> {
+  let newPost = React.createRef();
+  let addPost =()=>{
+    let text = newPost.current.value;
+    props.addPost(text)
+  }
+  let PostEl = props.posts.map(p => <Post message={p.content} likes={p.like}></Post>)
   return (
     <div>
-      My posts
-     <div className="new-post">
+      <h3>My posts</h3>
+      <div className="new-post">
         <form className={s.postForm}>
-          <textarea placeholder="Your post" className={s.textarea}></textarea>
-          <button>Send</button>
-        </form> 
+          <textarea placeholder="Ваш пост" className={s.textarea} ref={newPost}></textarea>
+          <button onClick={addPost}>Отправить</button>
+        </form>
       </div>
       <div className="posts-list">
-        <Post message="Hi? How are you?" likes="1"></Post>
-        <Post message="Its my new post" likes="12"></Post>
-        <Post message="Write me" likes="13"></Post>
+        {PostEl}
       </div>
     </div>
   )
-  }
+}
 
 export default MyPosts;
 
