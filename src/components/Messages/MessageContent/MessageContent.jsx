@@ -17,20 +17,26 @@ const Message = (props) => {
 
 
 const MessageContent = (props) => {
-  let newMessage=React.createRef();
-  let addMessage =()=>{
-    let text = newMessage.current.value;
-    alert(text);
+
+  let newMessage = React.createRef();
+  let addMessage = () => {
+    props.addMessage();
+    props.updateMessage('');
   }
+  let updateMess = () => {
+    let text = newMessage.current.value;
+    props.updateMessage(text);
+  }
+  
   let MesageContEl = props.messagesProps.map(c => <Message txt={c.text} img_url={c.img} />)
   return (
-        <div className={s.messages}>
-          {MesageContEl}
-          <div className={s.addText}>
-          <textarea placeholder="Написать сообщение" ref={newMessage}></textarea>
-          <button onClick={addMessage}>Отправить</button>
-          </div>
-        </div>
+    <div className={s.messages}>
+      {MesageContEl}
+      <div className={s.addText}>
+        <textarea placeholder="Написать сообщение" ref={newMessage} onChange={updateMess} value={props.newMessAdd}></textarea>
+        <button onClick={addMessage}>Отправить</button>
+      </div>
+    </div>
 
   )
 }

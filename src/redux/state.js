@@ -1,3 +1,4 @@
+import {rerenderEntireTree} from '../render'
 let state ={
   profilePage:{
      PostsObj : [
@@ -6,7 +7,8 @@ let state ={
       { id:3, content: 'Write me', like: 43 },
       { id:4, content: 'lorem', like: 223456 },
       {id:5,  content: 'Write me Write me Write me Write me', like: 22 },
-    ]
+    ],
+    newPostText:'react test',
   },
    messagesPage:{
     MessagesObj : [
@@ -17,11 +19,12 @@ let state ={
     ],
     
      MessagesContent : [
-      { text: 'Hi', img: 'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg' },
-      { text: 'In inventore molestias quibusdam fugit voluptatibus similique explicabo ipsam dolorem quo pariatur, ipsum illum, asperiores totam amet quidem! Laborum fugiat minima modi.', img: 'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg' },
-      { text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', img: 'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg' },
-      { text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.', img: 'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg' },
+      { id: 1, text: 'Hi man', img: 'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg' },
+      { id: 2, text: 'In inventore molestias quibusdam fugit voluptatibus similique explicabo ipsam dolorem quo pariatur, ipsum illum, asperiores totam amet quidem! Laborum fugiat minima modi.', img: 'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg' },
+      { id: 3, text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', img: 'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg' },
+      { id: 4, text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.', img: 'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg' },
     ],
+    newMessAdd:'New message',
    },
   sidebar:{
     friends:[
@@ -33,14 +36,37 @@ let state ={
   }
   
 }
-export let addPost=(contentMessage)=>{
+export let addPost=()=>{
 
 let newPost=
   {
     id:6,
-    content: contentMessage,
-    like:122222,
-  }
+    content: state.profilePage.newPostText,
+    like:0,
+  } 
 state.profilePage.PostsObj.push(newPost);
+rerenderEntireTree(state);
 }
+
+export let updatePost=(newTxt)=>{
+  state.profilePage.newPostText=newTxt;
+  rerenderEntireTree(state);
+}
+
+export let addMessage=()=>{
+
+  let newMessage=
+    {
+      id:5,
+      text: state.messagesPage.newMessAdd,
+      img:'https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg',
+    } 
+  state.messagesPage.MessagesContent.push(newMessage);
+  rerenderEntireTree(state);
+  }
+  
+  export let updateMessage=(newMess)=>{
+    state.messagesPage.newMessAdd=newMess;
+    rerenderEntireTree(state);
+  }
 export default state;

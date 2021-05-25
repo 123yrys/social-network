@@ -19,8 +19,8 @@ function App(props) {
         <Nav friends={props.state}></Nav>
         <div className="app-wrapper__content">
           {/* {NavItem} */}
-          <Route path="/messages" render={()=><Messages message={props.state}/>} />
-          <Route path="/profile" render={()=><Profile profile={props.state} addPost={props.addPost}/>}/>
+          <Route path="/messages" render={()=><Messages message={props.state} addMessage={props.addMessage} updateMessage={props.updateMessage}/>}/>
+          <Route path="/profile" render={()=><Profile profile={props.state} addPost={props.addPost} updatePost={props.updatePost}/>}/>
           <Route path="/news" render={()=><News/>} />
           <Route path="/music" render={()=><Music/>} />
           <Route path="/settings" render={()=><Settings/>} />

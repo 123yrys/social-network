@@ -10,7 +10,7 @@ const Messages = (props) => {
     <div>
       <div className={s.dialogs}>
         <MessageItems messageItmProps={props.message.messagesPage.MessagesObj}/>
-        <MessageContent messagesProps={props.message.messagesPage.MessagesContent}/>
+        <MessageContent messagesProps={props.message.messagesPage.MessagesContent} addMessage={props.addMessage} newMessAdd={props.message.messagesPage.newMessAdd} updateMessage={props.updateMessage}/>
       </div>
     </div>
   )
