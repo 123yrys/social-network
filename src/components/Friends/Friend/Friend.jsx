@@ -6,7 +6,7 @@ const FriendSing = (props) => {
   </div>
 }
 const Friend = (props) => {
-  let fr = props.friend.map(f => <FriendSing name={f.friend_name} />)
+  let fr = props.store.getState().sidebar.friends.map(f => <FriendSing name={f.friend_name} />)
   return (
     <div>
       {fr}

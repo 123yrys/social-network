@@ -9,8 +9,8 @@ const Messages = (props) => {
   return (
     <div>
       <div className={s.dialogs}>
-        <MessageItems messageItmProps={props.message.messagesPage.MessagesObj}/>
-        <MessageContent messagesProps={props.message.messagesPage.MessagesContent} addMessage={props.addMessage} newMessAdd={props.message.messagesPage.newMessAdd} updateMessage={props.updateMessage}/>
+        <MessageItems store={props.store}/>
+        <MessageContent store={props.store}/>
       </div>
     </div>
   )

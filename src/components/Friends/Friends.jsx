@@ -6,7 +6,7 @@ const Friends = (props) => {
   // let fr=props.friends.map(f=><Friend name={f.props.sidebar.friends.friend_name}/>)
   return (
     <div >
-      <Friend friend={props.friends.sidebar.friends}/>
+      <Friend store={props.store}/>
     </div>
   )
 }

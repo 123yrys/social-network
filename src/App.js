@@ -16,15 +16,15 @@ function App(props) {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header></Header>
-        <Nav friends={props.state}></Nav>
+        <Nav store={props.store}></Nav>
         <div className="app-wrapper__content">
           {/* {NavItem} */}
-          <Route path="/messages" render={()=><Messages message={props.state} addMessage={props.addMessage} updateMessage={props.updateMessage}/>}/>
-          <Route path="/profile" render={()=><Profile profile={props.state} addPost={props.addPost} updatePost={props.updatePost}/>}/>
+          <Route path="/messages" render={()=><Messages store={props.store}/>}/>
+          <Route path="/profile" render={()=><Profile store={props.store}/>}/>
           <Route path="/news" render={()=><News/>} />
           <Route path="/music" render={()=><Music/>} />
           <Route path="/settings" render={()=><Settings/>} />
-          <Route path="/friends" render={()=><Friends friends={props.state}/>} />
+          <Route path="/friends" render={()=><Friends friends={props.store}/>} />
         </div>
       </div>
     </BrowserRouter>

@@ -15,7 +15,7 @@ const MessagesItems = (props) => {
 
 const MessageItems = (props) => {
 
-  let MessagesEl = props.messageItmProps.map(m => <MessagesItems name={m.name} id={m.id} image={m.img} />);
+  let MessagesEl = props.store.getState().messagesPage.MessagesObj.map(m => <MessagesItems name={m.name} id={m.id} image={m.img} />);
   return (
     <div className={s.dialog_items}>
       {MessagesEl}
