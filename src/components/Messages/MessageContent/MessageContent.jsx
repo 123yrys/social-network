@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './MessageContent.module.css'
+import {addMessagePost, updateMessagePostActionCreator} from "../../../redux/state"
 
 
 const Message = (props) => {
@@ -15,17 +16,17 @@ const Message = (props) => {
   )
 }
 
-
 const MessageContent = (props) => {
 
   let newMessage = React.createRef();
   let addMessage = () => {
-    props.store.dispatch({type:"ADD-MSG"});
-    props.store.dispatch({type:"UPDATE-MSG", newMess:""});
+    let text = "";
+    props.store.dispatch(addMessagePost());
+    props.store.dispatch(updateMessagePostActionCreator(text));
   }
   let updateMess = () => {
     let text = newMessage.current.value;
-    props.store.dispatch({type:"UPDATE-MSG", newMess:text});
+    props.store.dispatch(updateMessagePostActionCreator(text));
   }
   
   let MesageContEl = props.store.getState().messagesPage.MessagesContent.map(c => <Message txt={c.text} img_url={c.img} />)

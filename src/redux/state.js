@@ -1,3 +1,8 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_POST = "UPDATE-POST";
+const ADD_MSG = "ADD-MSG";
+const UPDATE_MSG = "UPDATE-MSG";
+
 let store = {
    _callSubscriber ()  {
     console.log("state changed");
@@ -18,22 +23,22 @@ let store = {
         {
           id: 1,
           name: "Yrys",
-          img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+          img: "https://html5css.ru/howto/img_avatar2.png",
         },
         {
           id: 2,
           name: "Sveta",
-          img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+          img: "https://html5css.ru/howto/img_avatar2.png",
         },
         {
           id: 3,
           name: "Serg",
-          img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+          img: "https://html5css.ru/howto/img_avatar2.png",
         },
         {
           id: 4,
           name: "Lera",
-          img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+          img: "https://html5css.ru/howto/img_avatar2.png",
         },
       ],
   
@@ -41,22 +46,22 @@ let store = {
         {
           id: 1,
           text: "Hi man",
-          img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+          img: "https://html5css.ru/howto/img_avatar2.png",
         },
         {
           id: 2,
           text: "In inventore molestias quibusdam fugit voluptatibus similique explicabo ipsam dolorem quo pariatur, ipsum illum, asperiores totam amet quidem! Laborum fugiat minima modi.",
-          img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+          img: "https://html5css.ru/howto/img_avatar2.png",
         },
         {
           id: 3,
           text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-          img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+          img: "https://html5css.ru/howto/img_avatar2.png",
         },
         {
           id: 4,
           text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-          img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+          img: "https://html5css.ru/howto/img_avatar2.png",
         },
       ],
       newMessAdd: "New message",
@@ -75,7 +80,7 @@ let store = {
   },
 
   dispatch(action){
-    if(action.type==="ADD-POST"){
+    if(action.type===ADD_POST){
       let newPost = {
         id: 6,
         content: this._state.profilePage.newPostText,
@@ -84,20 +89,20 @@ let store = {
       this._state.profilePage.PostsObj.push(newPost);
       this._callSubscriber(this._state);
     }
-    else if(action.type==="UPDATE-POST"){
+    else if(action.type===UPDATE_POST){
       this._state.profilePage.newPostText = action.newTxt;
     this._callSubscriber(this._state);
     }
-    else if(action.type==="ADD-MSG"){
+    else if(action.type===ADD_MSG){
       let newMessage = {
         id: 5,
         text: this._state.messagesPage.newMessAdd,
-        img: "https://www.slazzer.com/static/images/demo/photographer-image-upload.jpg",
+        img: "https://html5css.ru/howto/img_avatar2.png",
       };
       this._state.messagesPage.MessagesContent.push(newMessage);
       this._callSubscriber(this._state);
     }
-    else if(action.type==="UPDATE-MSG"){
+    else if(action.type===UPDATE_MSG){
       this._state.messagesPage.newMessAdd = action.newMess;
       this._callSubscriber(this._state);
     }
@@ -107,5 +112,30 @@ let store = {
   },
 }
 
+export const addPostActionCreator=()=>{
+  return {
+    type: ADD_POST,
+  }
+} 
+
+export const UpdateNewPostTextActionCreator = (text) =>{
+return {
+  type : UPDATE_POST,
+  newTxt: text,
+}
+}
+
+export const addMessagePost = () =>{
+  return {
+    type : ADD_MSG,
+  }
+}
+
+export const updateMessagePostActionCreator = (text) => {
+  return {
+    type: UPDATE_MSG,
+    newMess:text,
+  }
+}
 export default store;
 window.store=store;
