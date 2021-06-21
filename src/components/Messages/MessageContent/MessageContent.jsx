@@ -18,15 +18,15 @@ const Message = (props) => {
 
 const MessageContent = (props) => {
 
-  let newMessage = React.createRef();
+  //let newMessage = React.createRef();
   let addMessage = () => {
     let text = "";
     props.store.dispatch(addMessagePost());
     props.store.dispatch(updateMessagePostActionCreator(text));
   }
-  let updateMess = () => {
-    let text = newMessage.current.value;
-    props.store.dispatch(updateMessagePostActionCreator(text));
+  let updateMess = (e) => {
+    let body = e.target.value
+    props.store.dispatch(updateMessagePostActionCreator(body));
   }
   
   let MesageContEl = props.store.getState().messagesPage.MessagesContent.map(c => <Message txt={c.text} img_url={c.img} />)
@@ -34,7 +34,7 @@ const MessageContent = (props) => {
     <div className={s.messages}>
       {MesageContEl}
       <div className={s.addText}>
-        <textarea placeholder="Написать сообщение" ref={newMessage} onChange={updateMess} value={props.store.getState().messagesPage.newMessAdd}></textarea>
+        <textarea placeholder="Написать сообщение" onChange={updateMess} value={props.store.getState().messagesPage.newMessAdd}></textarea>
         <button onClick={addMessage}>Отправить</button>
       </div>
     </div>
