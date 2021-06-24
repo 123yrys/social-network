@@ -10,7 +10,6 @@ import Settings from "./components/Settings/Settings";
 import { BrowserRouter, Route } from "react-router-dom";
 
 function App(props) {
-
   // let NavItem = props.item.map(m=><Route path="/messages" render={()=>m.menu_item} />)
   return (
     <BrowserRouter>
@@ -24,7 +23,7 @@ function App(props) {
           <Route path="/news" render={()=><News/>} />
           <Route path="/music" render={()=><Music/>} />
           <Route path="/settings" render={()=><Settings/>} />
-          <Route path="/friends" render={()=><Friends friends={props.store}/>} />
+          {/* <Route path="/friends" render={()=><Friends friends={props.store}/>} /> */}
         </div>
       </div>
     </BrowserRouter>

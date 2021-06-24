@@ -1,5 +1,6 @@
 import postReducer from "./postReducer";
 import messageReducer from "./messageReducer";
+import sidebarReducer from "./sidebarReducer";
 
 let store = {
    _callSubscriber ()  {
@@ -80,6 +81,7 @@ let store = {
   dispatch(action){
     this._state.profilePage = postReducer(this._state.profilePage, action);
     this._state.messagesPage = messageReducer(this._state.messagesPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
     this._callSubscriber(this._state);
   },
   subscribe (observer)  {
