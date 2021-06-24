@@ -1,7 +1,5 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_POST = "UPDATE-POST";
-const ADD_MSG = "ADD-MSG";
-const UPDATE_MSG = "UPDATE-MSG";
+import postReducer from "./postReducer";
+import messageReducer from "./messageReducer";
 
 let store = {
    _callSubscriber ()  {
@@ -80,62 +78,15 @@ let store = {
   },
 
   dispatch(action){
-    if(action.type===ADD_POST){
-      let newPost = {
-        id: 6,
-        content: this._state.profilePage.newPostText,
-        like: 0,
-      };
-      this._state.profilePage.PostsObj.push(newPost);
-      this._callSubscriber(this._state);
-    }
-    else if(action.type===UPDATE_POST){
-      this._state.profilePage.newPostText = action.newTxt;
+    this._state.profilePage = postReducer(this._state.profilePage, action);
+    this._state.messagesPage = messageReducer(this._state.messagesPage, action);
     this._callSubscriber(this._state);
-    }
-    else if(action.type===ADD_MSG){
-      let newMessage = {
-        id: 5,
-        text: this._state.messagesPage.newMessAdd,
-        img: "https://html5css.ru/howto/img_avatar2.png",
-      };
-      this._state.messagesPage.MessagesContent.push(newMessage);
-      this._callSubscriber(this._state);
-    }
-    else if(action.type===UPDATE_MSG){
-      this._state.messagesPage.newMessAdd = action.newMess;
-      this._callSubscriber(this._state);
-    }
   },
   subscribe (observer)  {
     this._callSubscriber = observer;
   },
 }
 
-export const addPostActionCreator=()=>{
-  return {
-    type: ADD_POST,
-  }
-} 
 
-export const UpdateNewPostTextActionCreator = (text) =>{
-return {
-  type : UPDATE_POST,
-  newTxt: text,
-}
-}
-
-export const addMessagePost = () =>{
-  return {
-    type : ADD_MSG,
-  }
-}
-
-export const updateMessagePostActionCreator = (text) => {
-  return {
-    type: UPDATE_MSG,
-    newMess:text,
-  }
-}
 export default store;
 window.store=store;

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './MessageContent.module.css'
-import {addMessagePost, updateMessagePostActionCreator} from "../../../redux/state"
+import {addMessagePost, updateMessagePostActionCreator} from "../../../redux/messageReducer"
 
 
 const Message = (props) => {
@@ -20,9 +20,7 @@ const MessageContent = (props) => {
 
   //let newMessage = React.createRef();
   let addMessage = () => {
-    let text = "";
     props.store.dispatch(addMessagePost());
-    props.store.dispatch(updateMessagePostActionCreator(text));
   }
   let updateMess = (e) => {
     let body = e.target.value
